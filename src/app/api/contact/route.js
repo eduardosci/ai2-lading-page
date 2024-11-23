@@ -8,7 +8,10 @@ export async function POST(req) {
   const { name, email, message } = body;
 
   if (!name || !email || !message) {
-    return new Response(JSON.stringify({ error: 'Todos os campos são obrigatórios.' }), { status: 400 });
+    return new Response(
+      JSON.stringify({ error: 'Todos os campos são obrigatórios.' }),
+      { status: 400 },
+    );
   }
 
   try {
@@ -24,9 +27,15 @@ export async function POST(req) {
       `,
     });
 
-    return new Response(JSON.stringify({ message: 'Mensagem enviada com sucesso!' }), { status: 200 });
+    return new Response(
+      JSON.stringify({ message: 'Mensagem enviada com sucesso!' }),
+      { status: 200 },
+    );
   } catch (error) {
     console.error('Erro ao enviar e-mail:', error);
-    return new Response(JSON.stringify({ error: 'Erro ao enviar a mensagem.' }), { status: 500 });
+    return new Response(
+      JSON.stringify({ error: 'Erro ao enviar a mensagem.' }),
+      { status: 500 },
+    );
   }
 }

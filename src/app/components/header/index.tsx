@@ -1,9 +1,9 @@
-"use client"
+'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
@@ -16,7 +16,10 @@ export const Header = () => {
   const router = useRouter();
 
   // Função para rolar até a seção de forma suave
-  const scrollToSection = async (event: React.MouseEvent, sectionId: string) => {
+  const scrollToSection = async (
+    event: React.MouseEvent,
+    sectionId: string,
+  ) => {
     event.preventDefault();
 
     if (window.location.pathname === '/') {
@@ -28,7 +31,7 @@ export const Header = () => {
         });
       }
     } else {
-      await router.push('/#services');  // Use await here
+      await router.push('/#services'); // Use await here
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({
@@ -51,23 +54,23 @@ export const Header = () => {
   };
 
   return (
-    <header className="border border-white/15 py-4 mt-8 px-8">
-      <div className="max-w-[1200px] mx-auto w-full">
-        <div className="flex justify-between items-center">
+    <header className="mt-8 border border-white/15 px-8 py-4">
+      <div className="mx-auto w-full max-w-[1200px]">
+        <div className="flex items-center justify-between">
           <motion.div
-            className="border h-10 rounded-lg inline-flex justify-center items-center border-white/15 px-2"
+            className="inline-flex h-10 items-center justify-center rounded-lg border border-white/15 px-2"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
             <Link href="/">
-              <h1 className="font-bold text-gray-300 text-2xl cursor-pointer">
+              <h1 className="cursor-pointer text-2xl font-bold text-gray-300">
                 AI2<span className="text-emerald-500">Agro</span>
               </h1>
             </Link>
           </motion.div>
 
-          <nav className="hidden md:flex flex-grow justify-center space-x-6">
+          <nav className="hidden flex-grow justify-center space-x-6 md:flex">
             {NAV_ITEMS.map((item) => (
               <motion.li
                 key={item.href}
@@ -85,7 +88,7 @@ export const Header = () => {
                   }}
                   className="text-gray-300 hover:text-emerald-500"
                 >
-                  <span className="border border-white/20 px-3 py-1 rounded-lg hover:border-emerald-500 hover:text-emerald-500 transition-all duration-200">
+                  <span className="rounded-lg border border-white/20 px-3 py-1 transition-all duration-200 hover:border-emerald-500 hover:text-emerald-500">
                     {item.label}
                   </span>
                 </a>
@@ -101,14 +104,14 @@ export const Header = () => {
           >
             <button
               onClick={scrollToContact}
-              className="bg-gradient-to-r from-emerald-500 via-teal-900 to-emerald-700 text-white px-6 py-2 rounded-lg hover:from-emerald-600 hover:via-teal-600 hover:to-emerald-900 transition-all duration-200"
+              className="rounded-lg bg-gradient-to-r from-emerald-500 via-teal-900 to-emerald-700 px-6 py-2 text-white transition-all duration-200 hover:from-emerald-600 hover:via-teal-600 hover:to-emerald-900"
             >
               Contact Us
             </button>
           </motion.div>
 
           <button
-            className="md:hidden text-gray-300 hover:text-emerald-500 focus:outline-none"
+            className="text-gray-300 hover:text-emerald-500 focus:outline-none md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -122,7 +125,11 @@ export const Header = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                d={
+                  isMenuOpen
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
+                }
               />
             </svg>
           </button>
@@ -130,7 +137,7 @@ export const Header = () => {
 
         {isMenuOpen && (
           <motion.div
-            className="mt-4 md:hidden flex flex-col space-y-4 bg-gray-800 p-4 rounded-lg"
+            className="mt-4 flex flex-col space-y-4 rounded-lg bg-gray-800 p-4 md:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -151,7 +158,7 @@ export const Header = () => {
             ))}
             <button
               onClick={scrollToContact}
-              className="bg-gradient-to-r from-emerald-500 via-teal-900 to-emerald-700 text-white px-6 py-2 rounded-lg hover:from-emerald-600 hover:via-teal-600 hover:to-emerald-900 transition-all duration-200"
+              className="rounded-lg bg-gradient-to-r from-emerald-500 via-teal-900 to-emerald-700 px-6 py-2 text-white transition-all duration-200 hover:from-emerald-600 hover:via-teal-600 hover:to-emerald-900"
             >
               Contact Us
             </button>

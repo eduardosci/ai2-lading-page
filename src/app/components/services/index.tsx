@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
-import { Button } from '../ui/moving-border';
-import { workServices } from '../data';
 import { motion } from 'framer-motion';
+import React from 'react';
+
+import { workServices } from '../data';
+import { Button } from '../ui/moving-border';
 
 export const Services = () => {
   // Variantes para animações com Framer Motion
@@ -25,23 +26,25 @@ export const Services = () => {
   return (
     <motion.section
       id="services"
-      className="py-20 w-full"
+      className="w-full py-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
       variants={containerVariants}
     >
       <motion.h1
-        className="text-white text-center"
+        className="text-center text-white"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="text-2xl font-serif text-emerald-500">.../Serviços em Destaque</span>
+        <span className="font-serif text-2xl text-emerald-500">
+          .../Serviços em Destaque
+        </span>
       </motion.h1>
 
       <motion.div
-        className="w-full mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"
+        className="mt-12 grid w-full grid-cols-1 place-items-center gap-10 sm:grid-cols-2 lg:grid-cols-3"
         variants={containerVariants}
       >
         {workServices.map((card, index) => (
@@ -65,7 +68,7 @@ export const Services = () => {
               }}
               className="flex-1 text-white"
             >
-              <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 gap-4">
+              <div className="flex flex-col items-center gap-4 p-4 sm:p-6 md:p-8">
                 <motion.img
                   src={card.thumbnail}
                   alt={card.title}
@@ -74,8 +77,12 @@ export const Services = () => {
                   transition={{ duration: 0.3 }}
                 />
                 <div className="text-center">
-                  <h1 className="text-lg sm:text-xl md:text-2xl text-gray-300 font-bold">{card.title}</h1>
-                  <p className="text-gray-300 mt-2 sm:mt-3 font-semibold">{card.desc}</p>
+                  <h1 className="text-lg font-bold text-gray-300 sm:text-xl md:text-2xl">
+                    {card.title}
+                  </h1>
+                  <p className="mt-2 font-semibold text-gray-300 sm:mt-3">
+                    {card.desc}
+                  </p>
                 </div>
               </div>
             </Button>

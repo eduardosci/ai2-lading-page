@@ -1,18 +1,20 @@
-import { Metadata } from "next";
-import { Montserrat } from "next/font/google"; // Importando a fonte Montserrat do Google Fonts
-import "./globals.css";
-import { Header } from "./components/header";
-import ContactForm from "./components/contact-form";
+import { Metadata } from 'next';
+import { Montserrat } from 'next/font/google'; // Importando a fonte Montserrat do Google Fonts
+
+import './globals.css';
+import ContactForm from './components/contact-form';
+import { Header } from './components/header';
 
 // Usando a fonte Montserrat do Google Fonts
-const montserrat = Montserrat({  // Substitua 'Montserrat' pela fonte desejada
-  weight: ["100", "400", "700"], // Adapte conforme necessário os pesos
-  subsets: ["latin"], // Adapte o subconjunto da fonte
+const montserrat = Montserrat({
+  // Substitua 'Montserrat' pela fonte desejada
+  weight: ['100', '400', '700'], // Adapte conforme necessário os pesos
+  subsets: ['latin'], // Adapte o subconjunto da fonte
 });
 
 export const metadata: Metadata = {
-  title: "LandingPage",
-  description: "A modern langing page",
+  title: 'LandingPage',
+  description: 'A modern langing page',
 };
 
 export default function RootLayout({
