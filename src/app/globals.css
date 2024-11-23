@@ -1,0 +1,22 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aplica o fundo preto em todo o corpo da página */
+html, body {
+  background-color: #000000;  /* Cor de fundo preta para toda a página */
+  height: 100%; /* Garante que a altura da página seja 100% da tela */
+  margin: 0;    /* Remove qualquer margem padrão do body */
+}
+
+/* Definindo a largura máxima do conteúdo */
+body {
+  max-width: 1200px;   /* Limita a largura do conteúdo */
+  margin: 0 auto;      /* Centraliza o conteúdo */
+  padding: 0 2rem;     /* Padding nas laterais para espaçamento */
+}
+
+section {
+  padding: 4rem 2rem;  /* Adiciona padding dentro da seção */
+}
